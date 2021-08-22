@@ -49,7 +49,7 @@ public class Main extends ListenerAdapter{
 			}else if(s.contains("/goodnight")){
 				e.getChannel().sendMessage("yeah good night my sweet darling").complete();
 				e.getJDA().shutdown();
-			}else if(s.contains("//help translate")){
+			}else if(s.contains("/help translate")){
 				e.getChannel().sendMessage("how to use: [/trans or /translate or /翻訳] [ja or en(choose what language you are using] [text] \nexample: /translate en hello\n※this translate is papago translate").queue();
 			}
 		}
@@ -63,7 +63,7 @@ public class Main extends ListenerAdapter{
 			con.setDoOutput(true);
 			con.setRequestMethod("POST");
 			con.setRequestProperty("X-Naver-Client-Id", ClientID);
-            con.setRequestProperty("X-Naver-Client-Secret", ClientSecret);
+			con.setRequestProperty("X-Naver-Client-Secret", ClientSecret);
 			DataOutputStream output = new DataOutputStream(con.getOutputStream());
 			output.writeBytes("text=" + URLEncoder.encode(message,"UTF-8") + "&target=" + target + "&source=" + source);
 			output.flush();
@@ -77,7 +77,7 @@ public class Main extends ListenerAdapter{
 		}
 		int a = string.indexOf("dText") + 8;
 		int b = string .indexOf("engine");
-		string = string.substring(a , b - 3);
+		string = string.substring(a, b - 3);
 		return string;
 	}
 
